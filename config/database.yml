@@ -1,0 +1,19 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  username: postgres
+  password: Nanu1996
+
+development:
+  <<: *default
+  database: webo_cron_monitor_development
+
+staging:
+  <<: *default
+  database: webo_cron_monitor_staging
+
+
+production:
+  <<: *default
+  database: webo_cron_monitor_production

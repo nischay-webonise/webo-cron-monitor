@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Crons</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Unique</th>
+      <th>Url</th>
+      <th>Expression</th>
+      <th>Grace period</th>
+      <th>Enabled</th>
+      <th colspan="4"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @crons.each do |cron| %>
+      <tr>
+        <td><%= cron.name %></td>
+        <td><%= cron.unique_id %></td>
+        <td><%= cron.url %></td>
+        <td><%= cron.expression %></td>
+        <td><%= cron.grace_period %></td>
+        <td><%= cron.enabled %></td>
+        <td><%= link_to 'Show', cron %></td>
+        <td><%= link_to 'Edit', edit_cron_path(cron) %></td>
+        <td><%= link_to 'Executions', cron_executions_path(cron) %></td>
+        <td><%= link_to 'Destroy', cron, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Cron', new_cron_path %>
